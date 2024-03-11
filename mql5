@@ -1,0 +1,62 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                        N9Tx EA MT5               |
+//|                                        Developer's site: forexroboteasy.com  |
+//|                                        Developed by: Forex Robot Easy Team    |
+//+------------------------------------------------------------------+
+
+// Global variables
+input double StopLoss = 50;  // Fixed stop loss for every position
+input double TakeProfit = 100;  // Fixed take profit for every position
+
+//+------------------------------------------------------------------+
+//|                                                   OnTick Function                                                    |
+//|                                              Entry point of the EA for trading                                    |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Get current market prices
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   
+   // Check if a new trade can be opened
+   if(IsTradeAllowed())
+   {
+      // Call trading functions to execute the algorithm
+      OpenPositions(bid, ask);
+      ClosePositions(bid, ask);
+   }
+}
+
+//+------------------------------------------------------------------+
+//|                                             IsTradeAllowed Function                                           |
+//|                                      Checks if trading is allowed based on conditions                      |
+//+------------------------------------------------------------------+
+bool IsTradeAllowed()
+{
+   // Add conditions to check if trading is allowed
+   // Return true if trading is allowed, false otherwise
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//|                                            OpenPositions Function                                            |
+//|                             Opens positions based on the central strategy                                    |
+//+------------------------------------------------------------------+
+void OpenPositions(double bid, double ask)
+{
+   // Implement the central strategy derived from PROscalper
+   // and supplement it with TrendFollowerSR and DailyBreakouts strategies
+   // Open positions based on the strategy
+}
+
+//+------------------------------------------------------------------+
+//|                                             ClosePositions Function                                           |
+//|                             Closes positions based on stop loss and take profit                             |
+//+------------------------------------------------------------------+
+void ClosePositions(double bid, double ask)
+{
+   // Check if any open positions need to be closed
+   // Add logic to close positions based on stop loss and take profit
+}
+
